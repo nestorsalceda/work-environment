@@ -5,6 +5,8 @@ resource "google_container_cluster" "sysdig_work" {
   initial_node_count = 2
 
   node_config {
+    image_type = "ubuntu"
+
     oauth_scopes = [
       "https://www.googleapis.com/auth/compute",
       "https://www.googleapis.com/auth/devstorage.read_only",
