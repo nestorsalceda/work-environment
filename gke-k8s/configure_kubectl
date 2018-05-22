@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Sometimes is needed to authenticate
+# gcloud auth login
+
+gcloud container clusters get-credentials sysdig-work --zone $GCLOUD_ZONE --project $GCLOUD_PROJECT

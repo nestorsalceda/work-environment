@@ -10,3 +10,6 @@
 # version control.
 #
 # example.tfvars
+
+# Gcloud service application key
+gke-k8s/service-account.json
