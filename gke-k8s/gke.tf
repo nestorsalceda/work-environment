@@ -2,7 +2,7 @@ provider "google" {}
 
 resource "google_container_cluster" "sysdig_work" {
   name               = "sysdig-work"
-  initial_node_count = 2
+  initial_node_count = 3
 
   node_config {
     image_type = "ubuntu"
