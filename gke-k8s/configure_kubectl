@@ -4,3 +4,5 @@
 # gcloud auth login
 
 gcloud container clusters get-credentials sysdig-work --zone $GCLOUD_ZONE --project $GCLOUD_PROJECT
+
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=nestor@nestorsalceda.com
