@@ -14,6 +14,11 @@ resource "google_container_cluster" "sysdig_work" {
       "https://www.googleapis.com/auth/monitoring",
     ]
   }
+
+  network_policy {
+    enabled = true
+  }
+
   provisioner "local-exec" {
     command = "./configure_kubectl"
   }
