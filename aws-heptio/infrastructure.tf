@@ -1,6 +1,6 @@
 resource "aws_key_pair" "k8s" {
   key_name   = "kubernetes-heptio-aws"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA0Xdx1tnCMf7CwLS2rOrcUakmQfSrO5ITpIdz925HeQpSsybY6swDHOy9fjpuPLiHkKBSOjSPAYlvS61nllhFyPdzeFGctgcCQ0wxWaTpbdtt1iguT+5lx6pxA+M1q9Tx8uLlSyETVcywh2k/iRjq9hlXusapl4SfgfRXB4srNLKfkps7H3BHV0wqZLr1gDTmgxkp0uJ0QmfjlA6Bvo0JqV8zq640mofzQ8xTWQUw4wlWH+FuknWPFYfoKxPTdFc6grqyIEDkEHPy6hwFYeHCNgEA7c0qC7Ghw400ER5sHVcW8dakRS3cAGjrbSoqRtQIci7vjHxVxT4eBe3qtDJ5UQ== nestor@point"
+  public_key = "${file("~/.ssh/id_rsa.pub")}"
 }
 
 resource "aws_cloudformation_stack" "k8s" {
