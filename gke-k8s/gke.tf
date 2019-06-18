@@ -1,5 +1,3 @@
-provider "google" {}
-
 resource "google_container_cluster" "sysdig_work" {
   name               = "sysdig-work"
   initial_node_count = 3
