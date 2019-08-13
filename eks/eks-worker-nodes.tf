@@ -89,11 +89,11 @@ resource "aws_security_group_rule" "demo-node-ingress-cluster" {
 data "aws_ami" "eks-worker" {
   filter {
     name   = "name"
-    values = ["amazon-eks-node-v*"]
+    values = ["amazon-eks-node-${aws_eks_cluster.demo.version}-v*"]
   }
 
   most_recent = true
-  owners      = ["602401143452"] # Amazon
+  owners      = ["602401143452"] # Amazon EKS AMI Account ID
 }
 
 # EKS currently documents this required userdata for EKS worker nodes to
@@ -129,7 +129,7 @@ resource "aws_autoscaling_group" "demo" {
   max_size             = 2
   min_size             = 1
   name                 = "${var.cluster-name}"
-  vpc_zone_identifier  = ["${aws_subnet.demo.*.id}"]
+  vpc_zone_identifier  = "${aws_subnet.demo.*.id}"
 
   tag {
     key                 = "Name"
