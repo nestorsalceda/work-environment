@@ -58,6 +58,10 @@ locals {
   echo "ECS_CLUSTER=${var.cluster-name}"
 } >> /etc/ecs/ecs.config
 
+{
+  echo "ECS_AVAILABLE_LOGGING_DRIVERS=[\"awslogs\",\"fluentd\"]"
+} >> /etc/ecs/ecs.config
+
 start ecs
 
 echo "Done"
