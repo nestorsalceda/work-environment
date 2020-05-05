@@ -1,6 +1,6 @@
-resource "google_container_cluster" "sysdig_work" {
-  name               = "sysdig-work"
-  initial_node_count = 3
+resource "google_container_cluster" "nestor_sysdig_work" {
+  name               = "nestor-sysdig-work"
+  initial_node_count = 2
 
   node_config {
     image_type = "ubuntu"
@@ -19,6 +19,13 @@ resource "google_container_cluster" "sysdig_work" {
   network_policy {
     enabled = true
   }
+
+  ip_allocation_policy {
+    use_ip_aliases = true
+  }
+
+  monitoring_service = "none"
+  logging_service = "none"
 
   provisioner "local-exec" {
     command = "./configure_kubectl"

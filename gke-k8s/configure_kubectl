@@ -3,6 +3,6 @@
 # Sometimes is needed to authenticate
 # gcloud auth login
 
-gcloud container clusters get-credentials sysdig-work --zone $GCLOUD_ZONE --project $GCLOUD_PROJECT
+gcloud container clusters get-credentials nestor-sysdig-work --zone $GCLOUD_ZONE --project $GCLOUD_PROJECT
 
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value account)
